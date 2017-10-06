@@ -1,17 +1,20 @@
-class Physics {
-  final float hConstant = 2;
-  final float cConstant = 3;
+abstract class Physics {
+  final float HOOKES = 2;
+  final float COULOMB = 3;
   
-  PVector hookes(PVector dx) {
-    return dx.mult(hConstant);
+  PVector hookes(PVector dpos) {
+    return dpos.mult(HOOKES);
   }
   
   PVector coulombs(PVector distance) {
-    return distance.mult(1/cConstant);
+    float[] arr = distance.array();
+    arr[0] *= arr[0];
+    arr[1] *= arr[1];
+    return new PVector(COULOMB / arr[0], COULOMB / arr[1]);
   }  
   
   PVector acceleration(PVector force, float mass) {
-    return force.mult(1/mass);
+    return force.div(mass);
   }
   
   PVector velocity(PVector v0, PVector a, int time) {
@@ -19,14 +22,11 @@ class Physics {
   }
   
   PVector displacement(PVector s0, PVector v, PVector a, int time) {
-    PVector temp = s0.add(v.mult(time));
-    temp.add(a.mult(0.5*time*time));
-    return temp;
+    return s0.add(v.mult(time)).add(a.mult(0.5*time*time));
   }
   
   float kineticEnergy(float mass, PVector v0) {
-    float temp = v0.dot(v0);
-    return temp * 0.5 * mass;
+    return 0.5 * mass * v0.dot(v0);
   }
   
   
@@ -37,6 +37,4 @@ class Physics {
   PVector damping(float c, PVector v) {
     return v.mult(-c); 
   }
-
-
 }

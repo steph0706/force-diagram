@@ -1,3 +1,5 @@
+System sys = null;
+
 void setup() {
   size(1024, 768);
   background(color(255, 255, 255));
@@ -16,7 +18,7 @@ void parseData(File file) {
   } else {
     ArrayList<Edge> edges = new ArrayList<Edge>();
     ArrayList<Node> nodes = new ArrayList<Node>();
-    System p = new System(100, edges, nodes);
+    sys = new System(edges, nodes);
     
     HashMap<Integer, Node> nodesHash = new HashMap<Integer, Node>();
     
@@ -27,7 +29,7 @@ void parseData(File file) {
       String[] currLine = lines[i].split(",");
       int id = Integer.valueOf(currLine[0]);
       int mass = Integer.valueOf(currLine[1]);
-      nodesHash.put(id, new Node(mass, id, p));
+      nodesHash.put(id, new Node(mass, id, sys));
     }
     
     int numEdges = Integer.valueOf(lines[numNodes + 1]);

@@ -10,6 +10,7 @@ class Node {
      this.mass = mass;
      this.parent = parent;
      this.id = id;
+     // initialize vectors to 0, except position is random on the screen?
    }
    
    void stageChanges(float dx, float distance) {
