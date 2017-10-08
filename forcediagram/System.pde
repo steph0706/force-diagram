@@ -1,5 +1,5 @@
 class System {
-  final float TIME = 1;
+  final int TIME = 1;
   float totalEnergy;
   ArrayList<Edge> edges;
   ArrayList<Node> nodes;
@@ -12,20 +12,13 @@ class System {
   void updateEnergy() {
     // go over all edges/nodes to get energy
   }
-  
-  void stageNodes() {
-    
-  }
-  
-  void updateNodes() {
-    
-  }
-  
-  void updateEdges() {
-    
+
+  void updateForces() {
+    for (Edge e : this.edges) e.useTheForce();
   }
   
   void draw() {
-    
+    for (Node n : this.nodes) n.draw();
+    for (Edge e : this.edges) e.draw();
   }
 }
