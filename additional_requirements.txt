@@ -1,0 +1,8 @@
+A2 Force diagram
+
+Charles Wan and Stephanie Wong
+
+Additional features:
+    - Left-click in space: create node
+    - Right-click on node: delete node
+    - Right-press and drag between nodes: make edge

@@ -1,0 +1,13 @@
+A2 Force diagram
+
+Charles Wan and Stephanie Wong
+
+What each team member did:
+    Together:
+        - Implement overall algorithm (i.e. calculating the total force on every
+            node)
+        - Implement the Node, Physics, Edge and System classes
+    Charles:
+        - Figured out Hooke's law
+    Stephanie:
+        - Parse data and store node and edge information
